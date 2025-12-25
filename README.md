@@ -44,8 +44,7 @@ ps: copy both file not the folder if you do it wont work
 ```
 3. Make it executable:
 ```bash
-sudo chmod +x /usr/local/bin/clamauto
-sudo chmod +x /usr/local/bin/clamautotime
+sudo chmod +x clamauto clamautotime
 ```
 4. Update ClamAV database (first time):
 
