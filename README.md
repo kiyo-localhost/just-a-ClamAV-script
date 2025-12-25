@@ -27,7 +27,7 @@
 * **Bash** (`>= 4`)
 * **ClamAV** (`clamscan`, `freshclam`, `sigtool`)
 * **notify-send** (optional, for desktop notifications)
-
+* 
 ---
 
 ## Installation
@@ -35,7 +35,9 @@
 1. Clone then copy the script to `/usr/local/bin/clamauto`
 ```bash
 sudo mv "the path of clone"  /usr/local/bin/
-``` 
+```
+ps: copy both file not the folder if you do it wont work 
+
 2. go to the path 
  ```bash
   cd /usr/local/bin/clamauto
