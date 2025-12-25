@@ -118,4 +118,4 @@ clamauto -t true
 ## License
 
 * MIT License (or whatever you choose)
-* []{https://media.tenor.com/tgs32ozGlrkAAAAi/uma-musume-anime.gif}
+![fun gif](https://media.tenor.com/tgs32ozGlrkAAAAi/uma-musume-anime.gif)
