@@ -1,0 +1,41 @@
+#!/bin/bash
+set -euo pipefail
+
+LOG_DIR="/var/log/clanauto"
+QUARANTINE="/quarantine"
+
+mkdir -p "$LOG_DIR"
+mkdir -p "$QUARANTINE"
+chmod 700 "$QUARANTINE" 2>/dev/null || true
+
+LOG_FILE="$LOG_DIR/scan-$(date '+%Y-%m-%d_%H-%M-%S').log"
+
+# EICAR test (silent)
+TESTFILE=$(mktemp)
+echo 'X5O!P%@AP\[4\\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*' > "$TESTFILE"
+clamscan "$TESTFILE" >/dev/null 2>&1 || true
+rm -f "$TESTFILE"
+
+if [[ "$EUID" -ne 0 ]]; then
+    echo "Full system scan requires root. Use sudo."
+    exit 1
+fi
+
+echo "Starting weekly full system scan..." | tee -a "$LOG_FILE"
+
+
+clamscan -r / --infected --bell \
+    --move="$QUARANTINE" \
+    --exclude-dir='^/sys|^/proc|^/dev|^/run|^/snap' \
+    | tee -a "$LOG_FILE"
+
+
+INFECTED=$(awk '/Infected files:/ {print $3; exit}' "$LOG_FILE" || echo 0)
+
+if [[ "$INFECTED" -gt 0 ]]; then
+    echo "Malware detected! ($INFECTED infected files)" | tee -a "$LOG_FILE"
+    command -v notify-send >/dev/null 2>&1 && notify-send -u critical \
+        "ClamAV Weekly Scan" "Malware detected! Check $LOG_FILE"
+else
+    echo "Scan clean." | tee -a "$LOG_FILE"
+fi
