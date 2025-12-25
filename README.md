@@ -1,4 +1,4 @@
-# ClamAuto – just a  ClamAV scrpt
+# ClamAuto – just a  ClamAV scrpt 
 
 **ClamAuto** is a Bash script that makes using ClamAV faster, easier,for avarge dumb people like me  It adds:
 
@@ -34,7 +34,7 @@
 
 1. Clone then copy the script to `/usr/local/bin/clamauto`
 ```bash
-sudo mv "the path of clone" to /usr/local/bin/
+sudo mv "the path of clone"  /usr/local/bin/
 ``` 
 2. go to the path 
  ```bash
@@ -110,12 +110,13 @@ clamauto -t true
 
 ## Contributing
 
+* ps: its my first bash project with like more then 5 lines and created from scrach so its gonna be bad 
 * Open an issue for bugs or feature requests.
-* Pull requests welcome!
-
+* or just do it yourself and send me so i can also use it
 ---
 
 ## License
 
 * MIT License (or whatever you choose)
 ---
+[](https://media.tenor.com/tgs32ozGlrkAAAAi/uma-musume-anime.gif)
