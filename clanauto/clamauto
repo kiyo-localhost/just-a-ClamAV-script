@@ -133,10 +133,10 @@ while getopts "huf:r:st:i:b:ld" opt; do
         t)
             if [[ "$OPTARG" == "true" ]]; then
                 info "Enabling weekly scan..."
-                (crontab -l 2>/dev/null; echo "0 3 * * 0 /usr/local/bin/clamauto -s") | crontab -
+                (crontab -l 2>/dev/null; echo "0 3 * * 0 /usr/local/bin/clamautotime -s") | crontab -
             elif [[ "$OPTARG" == "false" ]]; then
                 info "Disabling weekly scan..."
-                crontab -l 2>/dev/null | grep -v "clamauto -s" | crontab -
+                crontab -l 2>/dev/null | grep -v "clamautotime -s" | crontab -
             else
                 err "Use true or false"
                 exit 1
