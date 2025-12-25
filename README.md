@@ -23,7 +23,7 @@
 
 ## Requirements
 
-* **Linux** (tested on Ubuntu/Debian)
+* **Linux** (tested on arch)
 * **Bash** (`>= 4`)
 * **ClamAV** (`clamscan`, `freshclam`, `sigtool`)
 * **notify-send** (optional, for desktop notifications)
