@@ -40,11 +40,12 @@ ps: copy both file not the folder if you do it wont work
 
 2. go to the path 
  ```bash
-  cd /usr/local/bin/clamauto
+  cd /usr/local/bin
 ```
 3. Make it executable:
 ```bash
 sudo chmod +x /usr/local/bin/clamauto
+sudo chmod +x /usr/local/bin/clamautotime
 ```
 4. Update ClamAV database (first time):
 
